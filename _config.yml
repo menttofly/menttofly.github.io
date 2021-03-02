@@ -27,16 +27,16 @@ description: >-                        # used by seo meta and the atom feed
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: 'https://menttofly.github.io'
 
-author: your_full_name                  # change to your full name
+author: menttofly                  # change to your full name
 
 github:
-  username: github_username             # change to your github username
+  username: menttofly             # change to your github username
 
 twitter:
   username: twitter_username            # change to your twitter username
 
 social:
-  name: your_full_name                  # it will shows as the copyright owner in Footer
+  name: menttofly                  # it will shows as the copyright owner in Footer
   email: example@doamin.com             # change to your email address
   links:
     # The first element serves as the copyright owner's link

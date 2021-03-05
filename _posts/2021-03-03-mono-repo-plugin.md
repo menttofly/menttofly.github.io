@@ -34,7 +34,7 @@ pod 'GDWind', :path => '../../modules/GDWind'
 |           文件            |                             功能                             |
 | :-----------------------: | :----------------------------------------------------------: |
 |   `cocoapods_plugin.rb`   | 注册 `cocoapods` 钩子，在 `install` 和 `update` 前导入 `resolver` 模块 |
-| `pod spec_local_cache.rb` |    缓存指定目录下所有本地组件 `podspec` 解析后的描述信息     |
+| `pod_spec_local_cache.rb` |    缓存指定目录下所有本地组件 `podspec` 解析后的描述信息     |
 |       `resolver.rb`       |  核心类，将组件指定为外部源并注入 `sandbox` ，成为本地依赖   |
 
 ### 3. 接入方式

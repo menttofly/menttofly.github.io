@@ -18,7 +18,7 @@ pod 'GDWind', :path => '../../modules/GDWind'
 - `podspec` 不支持 `:path` 语法，无法使用 `cocoapods` 自身解决依赖项的能力
 - 需要在 `Podfile` 穷举所有依赖，容易引入无关组件，且缺失依赖会导致各种错误
 
-所以我们结合 `cocoapods` 提供的插件能力，开发了 `cocoapods-monorepo` 插件，解决上述相关问题。
+所以结合 `cocoapods` 提供的插件能力，开发了 `cocoapods-monorepo` 插件，用于解决上述相关问题。
 
 ## cocoapods-monorepo插件 
 

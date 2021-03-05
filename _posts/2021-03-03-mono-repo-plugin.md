@@ -46,7 +46,7 @@ pod 'GDWind', :path => '../../modules/GDWind'
 ➜ gem install cocoapods-monorepo-0.0.1.gem --user-install
 ```
 
-在 `Podfile` 中添加并执行 `pod install` ：
+在 `Podfile` 中添加 `plugin 'cocoapods-monorepo'`，并执行 `pod install` ：
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'

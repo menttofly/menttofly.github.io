@@ -3,22 +3,24 @@
 */
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;900&display=swap');
 
-@mixin mode-toggle($dark-mode: false) {
-  @if $dark-mode {
-    @include dark-scheme;
-
-    .mode-toggle {
-      transform: rotateY(180deg);
-    }
-
-  } @else {
-    @include light-scheme;
-
-    .mode-toggle {
-      transform: none;
-    }
+@mixin set-visible($light-display, $dark-display) {
+  [light-mode-invisible] {
+    display: $light-display;
   }
 
+  [dark-mode-invisible] {
+    display: $dark-display;
+  }
+}
+
+@mixin mode-toggle($dark-mode: false) {
+  @if $dark-mode {
+    @include set-visible(inline-block, none);
+    @include dark-scheme;
+  } @else {
+    @include set-visible(none, inline-block);
+    @include light-scheme;
+  }
 }
 
 html:not([mode]),

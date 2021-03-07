@@ -7,7 +7,7 @@ tags: [cocoapods]
 
 ## 背景介绍
 
-为提高团队沟通协同效率，减少版本更新维护成本，我们将项目组件化方案调整成基于 `cocoapods` 的 `monorepo` 的方案。由于`cocoapods` 并未提供天然的 `monorepo` 支持，因此早期是通过在 `Podfile` 中使用 `:path` 语法来解决依赖问题：
+在组件化架构非常流行的今天，如何有效地隔离拆分子模块，并提高协同发布效率成为了重中之重。`multi-repo` 在版本管理、统一工作流等方面的不足，促使我们决定将组建化架构调整为基于 `cocoapods` 的 `monorepo` 方案。由于`cocoapods` 并未提供天然的 `monorepo` 支持，因此早期是通过在 `Podfile` 中使用 `:path` 语法来解决依赖问题：
 
 ```bash
 pod 'GDWind', :path => '../../modules/GDWind'
@@ -60,5 +60,5 @@ plugin 'cocoapods-monorepo'
 
 ### 1. cocoapods plugin
 
-`cocoapods` 中的插件开发
+`CocoaPods` 允许开发者使用和创建自己的插件，其核心原理为基于AOP编程能力。插件开发类似 `objc category` 和 `swift extension` ，可以很方便地对 `class/module` 进行拓展，可以为其添加甚至重写方法、属性等。
 

@@ -60,5 +60,5 @@ plugin 'cocoapods-monorepo'
 
 ### 1. cocoapods plugin
 
-`CocoaPods` 允许开发者使用和创建自己的插件，其核心原理为基于AOP编程能力。插件开发类似 `objc category` 和 `swift extension` ，可以很方便地对 `class/module` 进行拓展，可以为其添加甚至重写方法、属性等。
+`CocoaPods` 允许开发者使用和创建自己的插件，其核心原理为基于AOP编程能力。插件开发类似 `objc category` 和 `swift extension` ，可以很方便地对 `class/module` 进行拓展，并且为其添加甚至重写方法、属性等。
 

@@ -1,22 +1,24 @@
 ---
 title: mono-repo插件
 date: 2021-03-03 21:14:15
-categories: [容器化]
+categories: [组件化, 容器化]
 tags: [cocoapods] 
 ---
 
 ## 背景介绍
 
-在组件化架构非常流行的今天，我们希望可以在提高协同发布效率，且与子模块隔离性之间形成一种平衡。`monorepo` 在版本管理、统一工作流等方面相比 `multirepo` 更具优势，特别适合中小型团队组织、管理与维护组件仓库。由于`cocoapods` 并未提供天然的 `monorepo` 支持，因此早期是通过在 `Podfile` 中使用 `:path` 语法来解决依赖问题：
+`monorepo` 作为组件化架构中的一种源码组织方案，不仅可以提高团队协同效率，统一发布、测试工作流，同时也保留了模块间相对的隔离性。由于`CocoaPods` 并未提供官方的 `monorepo` 支持，因此工程早期通过在 `Podfile` 中使用 `:path` 语法来声明依赖关系：
 
 ```bash
-pod 'GDWind', :path => '../../modules/GDWind'
+pod 'ModuleA', :path => '../modules/ModuleA'
+...
 ```
 
-但是这种方式不仅低效，而且代码可移植性很差，在组件的规模比较大时很难管理，原因如下：
+但是这种方式不仅低效，同时也无法复用组件自身依赖项，原因如下所述：
 
-- `podspec` 不支持 `:path` 语法，无法使用 `cocoapods` 自身解决依赖项的能力
-- 需要在 `Podfile` 穷举所有依赖，容易引入无关组件，且缺失依赖会导致各种错误
+- `podspec` 不能通过 `:path` 选项指定本地组件，缺失解决自身依赖问题能力
+- `Podfile` 需穷举所有依赖，丢失会导致 `pod install` 报错，引入无关组件则造成冗余
+- 当组件路径发生变化时，需要调整全部声明依赖项的位置
 
 所以结合 `cocoapods` 提供的插件能力，开发了 `cocoapods-monorepo` 插件，用于解决上述相关问题。
 

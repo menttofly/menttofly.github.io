@@ -47,13 +47,13 @@ pod 'ModuleA', :path => '../modules/ModuleA'
 ➜ gem install cocoapods-monorepo
 ```
 
-在 `Podfile` 中引入插件并指定读取目录 `:path`，然后执行 `pod install` ：
+在 `Podfile` 中引用插件并通过 `:path` 选项设定读取目录，然后执行 `pod install` ：
 
 ```ruby
 plugin 'cocoapods-monorepo', :path => 'path/to/monorepo-directory'
 ```
 
-一切就绪！
+**Done！**
 
 ## 技术原理
 

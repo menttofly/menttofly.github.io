@@ -79,7 +79,7 @@ end
 
 ### 2. 搭建调试环境
 
-为了提高插件研发效率，我们需要分析 `pod install` 执行过程，进行一些必要调试工作。我选择了 `Bundler+VSCode` 工具链，接着安装调试 `Ruby` 时所需的环境依赖，同时 `VSCode` 中也应要安装 `Ruby` 插件：
+为了提高插件研发效率，我们需要分析 `pod install` 执行过程，进行一些必要调试工作。我选择了 `Bundler+VSCode` 工具链，接着安装调试 `Ruby` 时所需的环境依赖，同时 `VSCode` 中也要安装 `Ruby` 插件：
 
 ```bash
 ➜ gem install ruby-debug-ide

@@ -20,7 +20,7 @@ pod 'ModuleA', :path => '../modules/ModuleA'
 - `Podfile` 需穷举所有依赖，依赖丢失时 `pod` 报错，引入无关组件则造成冗余
 - 当组件路径发生变化时，需要调整全部声明依赖项的位置
 
-如果可以让 `podspec` 支持解析本地组件，所有问题就能迎刃而解。幸运的是，`CocoaPods` 提供了完整的插件机制。我们通过研发  [cocoapods-monorepo](https://github.com/menttofly/cocoapods-monorepo) 插件，实现 `CocoaPods` 对 `monorepo` 特性的支持，解决了上述工程化问题。
+如果可以让 `podspec` 支持解析本地组件，所有问题就能迎刃而解。幸运的是，`CocoaPods` 提供了完整的插件机制。通过我们研发的 [cocoapods-monorepo](https://github.com/menttofly/cocoapods-monorepo) 插件，实现 `CocoaPods` 对 `monorepo` 特性的支持，解决了上述工程化问题。
 
 ## cocoapods-monorepo插件 
 
@@ -61,16 +61,16 @@ plugin 'cocoapods-monorepo', :path => 'path/to/modules-directory'
 
 > **What can CocoaPods Plugins do?**
 >
-> - Hook into the install process, both before and after
 > - Add new commands to `pod`
+> - Hook into the install process, both before and after
 > - Do whatever they want, because Ruby is a very dynamic language
 
-简单来说 `Ruby` 具备非常强的动态特性，支持对现有的 `class & module` 进行扩展，甚至可以添加或重写方法与属性。举个例子，我们使用 `alias_method` 实现 `objc` 中常见的 `Mehod Swizzling` 效果，在调用 `find_cached_set` 前执行其它任务：
+简单来说 `Ruby` 具备非常强的动态特性，支持对现有的 `class & module` 进行扩展，甚至可以添加或重写方法和属性。举个例子，我们使用 `alias_method` 实现 `objc` 中常见的 `Mehod Swizzling` 效果，在调用 `find_cached_set` 前执行其它任务：
 
 ```ruby
 class Resolver
-		alias_method :origin_find_cached_set, :find_cached_set
-		def find_cached_set(dependency)
+    alias_method :origin_find_cached_set, :find_cached_set
+    def find_cached_set(dependency)
       # Do anything before original method
       origin_find_cached_set(dependency)
     end
@@ -79,7 +79,7 @@ end
 
 ### 2. 搭建调试环境
 
-为了提高插件研发效率，我们需要分析 `pod install` 执行过程，进行一些必要调试工作。我选择了 `Bundler+VSCode` 工具链，接着安装调试 `Ruby` 时所需的环境依赖，同时 `VSCode` 中也应该安装 `Ruby` 插件：
+为了提高插件研发效率，我们需要分析 `pod install` 执行过程，进行一些必要调试工作。我选择了 `Bundler+VSCode` 工具链，接着安装调试 `Ruby` 时所需的环境依赖，同时 `VSCode` 中也应要安装 `Ruby` 插件：
 
 ```bash
 ➜ gem install ruby-debug-ide
@@ -112,13 +112,13 @@ gem 'debase'
 }
 ```
 
-此外，插件和 `CocoaPods` 是支持同时调试的，我们可以验证插件是否符合预期。
+此外，插件和 `CocoaPods` 是支持同时调试的，我们可以验证插件行为是否符合预期。
 
 ### 3. 插件开发
 
 理论上，我们的 `monorepo` 插件应实现以下核心功能：
 
-- 支持设定组件读取目录，这是通用性的前提
+- 支持设定组件读取目录，这是实用性的前提
 - `Podfile` 声明的本地组件，`:path` 缺失可被识别为 `Development Pods` 
 - `podspec` 依赖的本地组件，同样也能够解析为 `Development Pods` 
 

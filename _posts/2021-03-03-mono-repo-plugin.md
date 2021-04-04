@@ -57,7 +57,7 @@ plugin 'cocoapods-monorepo', :path => 'path/to/modules-directory'
 
 ### 1. 插件机制
 
-由于 `CocoaPods` 是一个由少数人员维护的社区项目，无法完全支持众多潜在有用的 `Xcode` 功能。所以通过增加插件体系架构，允许其他人拓展 `CocoaPods` 以支持社区主要发展目标之外的其它特性。至于插件能做什么，官方对插件是这么描述的：
+由于 `CocoaPods` 是一个由少数人员维护的社区项目，无法完全支持众多潜在有用的 `Xcode` 功能。所以通过增加插件体系架构，允许其他人拓展 `CocoaPods` 以支持社区主要发展目标之外的其它特性。至于插件能做什么，官方文档是这么描述的：
 
 > **What can CocoaPods Plugins do?**
 >

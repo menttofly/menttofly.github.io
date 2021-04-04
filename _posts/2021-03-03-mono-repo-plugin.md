@@ -183,7 +183,7 @@ def specifications_for_dependency(dependency, additional_requirements = [])
 end
 ```
 
-所以，我们在调用 `find_cached_set` 前对目标 `dependency` 添加 `external source` ，且使用 `AOP` 编程以兼容 `CocoaPods` 升级：
+所以，我们在调用 `find_cached_set` 前对目标 `dependency` 添加 `external source` ，同时兼容 `CocoaPods` 版本升级：
 
 ```ruby
 alias_method :origin_find_cached_set, :find_cached_set

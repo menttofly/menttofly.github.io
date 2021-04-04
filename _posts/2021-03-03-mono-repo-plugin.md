@@ -127,7 +127,7 @@ gem 'debase'
 
 > The Dependency allows to specify dependencies of a `Podfile` or a `podspec` on a Pod. It stores the name of the dependency, version requirements and external sources information
 
-有别于 `Pod::Source` 使用 `Git Repo` 托管所有 `podspec` 的方式， `external source` 通过特定 `podsepc` 文件去下载 `Pod` 依赖。实际上，`Podfile` 支持以下类型外部源：
+有别于 `Pod::Source` 使用 `Git Repo` 托管所有 `podspec` 的方式， `external source` 通过特定 `podsepc` 文件去下载 `Pod` 依赖。目前为止，`Dependency` 支持以下类型外部源：
 
 ```ruby
 Dependency.new('libPusher', {:git     => 'example.com/repo.git'})
@@ -170,7 +170,7 @@ def fetch_external_source(dependency, use_lockfile_options)
 end
 ```
 
-因此，在适当的位置把 `Specification` 注入到 `sandbox` 中，才能影响 `Pod` 依赖安装结果。`Pod::Resolver` 执行依赖分析时，对于每个 `dependency` 对应 `Specification` ，都会通过 `find_cached_set` 返回满足 `requirements` 的结果集：
+因此，在适当的位置把 `Specification` 注入到 `sandbox` 中，才能影响 `Pod` 依赖安装结果。`Pod::Resolver` 执行依赖分析时，对于每个 `dependency` 相应 `Specification` ，都会通过 `find_cached_set` 返回满足 `requirements` 的结果集：
 
 ```ruby
 def specifications_for_dependency(dependency, additional_requirements = [])

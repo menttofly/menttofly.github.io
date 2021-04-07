@@ -183,10 +183,10 @@ def specifications_for_dependency(dependency, additional_requirements = [])
 end
 ```
 
-所以，`find_cached_set` 是一个对目标 `dependency` 添加 `external source` 的绝佳位置，同时需要兼容 `CocoaPods` 版本升级：
+由此看来，`find_cached_set` 是一个对目标 `dependency` 添加 `external source` 的绝佳位置： 
 
 ```ruby
-alias_method :origin_find_cached_set, :find_cached_set
+alias_method :origin_find_cached_set, :find_cached_set 
 def find_cached_set(dependency)
   unless dependency.external_source
     name = dependency.root_name
@@ -200,7 +200,7 @@ def find_cached_set(dependency)
 end
 ```
 
-现在执行 `pod install` 或 `pod update` ，会发现所有本地组件都出现在 `Development Pods` 中。
+运行 `pod install` 或 `pod update` ，会发现本地组件都出现在 `Development Pods` 中，同时兼容了 `CocoaPods` 版本升级。
 
 #### 3.3 支持目录读取
 

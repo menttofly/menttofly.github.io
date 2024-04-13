@@ -1,7 +1,7 @@
 ---
 title: Flutter工程化能力建设
-date: 2022-03-15 15:31:15
-categories: [工程化]
+date: 2022-03-15 15:31:18
+categories: [DevOps]
 tags: [flutter] 
 ---
 
